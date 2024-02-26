@@ -51,7 +51,7 @@ const HeroSection = () => {
                 className='col-span-5 place-self-center mt-4 lg:mt-10'>
                 <div className= 'bg-[#c77438] w-[420px] h-[420px] lg:w-[420px] lg:h-[420px] relative bg-cover'>
                     <Image 
-                    src='/shreyastelkar.github.io/public/profile_pic.jpeg'
+                    src='/shreyastelkar.github.io/profile_pic.jpeg'
                     alt='profile_img'
                     className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
                     style={{borderRadius: '15px'}} 
