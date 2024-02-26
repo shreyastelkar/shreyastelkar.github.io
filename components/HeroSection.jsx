@@ -8,12 +8,12 @@ const HeroSection = () => {
   return (
     <section>
         <div className='grid grid-cols-1 lg:grid-cols-12'>
-           <motion.div
+           {/* <motion.div
                 initial={{ opacity: 0}}
                 animate={{ opacity: 1}}
                 transition={{ duration: 0.5 }}
                 className='col-span-7 place-self-center text-center sm:text-left'
-            >                
+            >                 */}
                 <h1 className= "mb-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-600"> 
                     Shreyas <span className='hover:text-[#ca9d7d] hover:bg-[#2e1d12]'>Telkar</span>
                 </h1>
@@ -43,12 +43,12 @@ const HeroSection = () => {
                     </button>
                 </div>
             
-            </motion.div>
+            {/* </motion.div> */}
 
-            <motion.div initial={{ opacity: 0.2}}
+            {/* <motion.div initial={{ opacity: 0.2}}
                 animate={{ opacity: 1}}
                 transition={{ duration: 0.2 }}
-                className='col-span-5 place-self-center mt-4 lg:mt-10'>
+                className='col-span-5 place-self-center mt-4 lg:mt-10'> */}
                 <div className= 'bg-[#c77438] w-[420px] h-[420px] lg:w-[420px] lg:h-[420px] relative bg-cover'>
                     <Image 
                     src='/profile_pic.jpeg'
@@ -60,7 +60,7 @@ const HeroSection = () => {
                     />
                 </div>
 
-            </motion.div>
+            {/* </motion.div> */}
         </div>
     </section>
   )
