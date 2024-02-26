@@ -31,3 +31,75 @@ body {
     text-wrap: balance;
   }
 }
+
+.scroll-section-inner{
+  height: 200vh;
+  width: 400vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.scroll-section-outer{
+  overflow: hidden;
+}
+
+.scroll-section1{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
+}
+
+div.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+
+.container1 > * {
+  display: block;
+}
+.container > * {
+  display: inline-block;
+}
+
+.image-container img, .video-container iframe {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .media-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .image-container, .video-container {
+    flex-basis: calc(50% - 10px); /* Adjust the percentage and gap as needed */
+  }
+}
+
+.big-font-list {
+  font-size: 24px; /* Big font size */
+  line-height: 1.5; /* Improved line spacing for readability */
+  color: white; /* Dark grey color for text */
+  padding-left: 20px; /* Space before bullets/numbers */
+  list-style-position: inside; /* Align bullets/numbers with text */
+}
+
+.big-font-list li {
+  margin-bottom: 10px; /* Space between list items */
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  height: 40vh; /* Full viewport height */
+  width: 250vh;
+}
