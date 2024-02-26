@@ -84,7 +84,7 @@ const Background = () => {
       </div>
 
       <div className='md:grid md:grid-cols-2 gap-6 items-center py-8 px-4 xl:gap-8 sm:py-8'>  
-        <Image src="https://shreyastelkar.github.io/public/group.jpg"
+        <Image src="/group.jpg"
         width = {450}
         height = {400}
         />
