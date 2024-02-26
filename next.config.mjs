@@ -1,6 +1,6 @@
 const nextConfig = {
   output: 'export',
-  basePath: '/https://shreyast.github.io',
+  basePath: '/shreyast.github.io',
   images: {
     unoptimized: true
   }
