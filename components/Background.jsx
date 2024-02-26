@@ -46,7 +46,7 @@ const TabData = [
           Bachelors of Science<br/>
           Dec. 2023 <br/>
           <br/>
-          Dean's Honors List: Fall 2023
+          Dean&apos;s Honors List: Fall 2023
         </p>
       </div>
     )
