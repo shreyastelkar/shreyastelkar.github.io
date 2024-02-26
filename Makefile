@@ -28,6 +28,7 @@ build: clean install
 deploy: clean build
 	rm -rf docs/
 	mv out docs
+	npm run deploy
 	git add docs
 	git commit -m "Deploy `git rev-parse --verify HEAD`"
 	git push origin master
