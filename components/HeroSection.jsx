@@ -14,7 +14,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.5 }}
                 className='col-span-7 place-self-center text-center sm:text-left'
             >                 */}
-            <div col-span-7 place-self-center text-center sm:text-left>
+            <div className='col-span-7 place-self-center text-center sm:text-left'>
                 <h1 className= "mb-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-600"> 
                     Shreyas <span className='hover:text-[#ca9d7d] hover:bg-[#2e1d12]'>Telkar</span>
                 </h1>
