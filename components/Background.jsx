@@ -36,7 +36,7 @@ const TabData = [
     content: (
       <div>
         <Image
-        src="/shreyastelkar.github.io/images/baskin.png"
+        src="public/baskin.png"
         width={100}
         height={100}
         />
