@@ -1,6 +1,7 @@
 // Import components
 import HeroSection from "../components/HeroSection";
 import Background from "../components/Background";
+import Projects from "../components/Projects";
 
 // Optionally import Contact and ChakraProvider if needed
 
@@ -11,6 +12,9 @@ export default function Home() {
       <div className= "container mt-20 mx-auto px-12 py-4">
         <HeroSection />
         <Background />
+      </div>
+      <div className="border border-black border-width:500px bg-[#323030]"> 
+        <Projects />
       </div>
     </main>
   );
