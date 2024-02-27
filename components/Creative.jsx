@@ -8,4 +8,4 @@ const Creative = () => {
   )
 }
 
-export default Contact
+export default Creative

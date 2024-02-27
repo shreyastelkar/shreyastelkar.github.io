@@ -2,7 +2,7 @@ import React from 'react'
 
 const Resume = () => {
   return (
-    <div id='resume'>
+    <div>
         Resume
         <iframe
         src="/resume.pdf"
