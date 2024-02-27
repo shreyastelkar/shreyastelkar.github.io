@@ -137,7 +137,7 @@ const Scroll = () => {
                             height={700}
                             />
                             <Image className="ml-8 mt-12"
-                            src='//basys.jpg'
+                            src='/basys.jpg'
                             width={450}
                             height={300}
                             />    
