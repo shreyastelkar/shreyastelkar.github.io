@@ -154,14 +154,14 @@ const Scroll = () => {
                     <div className="container">
                         <Image className="ml-24 mb-12 mt-4"
                         src="/dfs.png"
-                        width={600}
-                        height={600}
+                        width={400}
+                        height={400}
                         />
                     
                         <Image className="ml-24"
                             src="/map.webp"
-                            width={600}
-                            height={600}
+                            width={400}
+                            height={400}
                             />
                     </div>
 

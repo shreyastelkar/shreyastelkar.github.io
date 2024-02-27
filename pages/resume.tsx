@@ -3,7 +3,8 @@ import React from 'react'
 const Resume = () => {
   return (
     <div>
-        <h1 className = 'text-center mt-12 mb-4 font-semibold text-6xl underline text-white'>Resume</h1>
+        <h1 className = 'text-center mt-4 mb-8 font-semibold text-6xl underline text-black'>Resume</h1>
+        <p className='text-black'> Cannot download at this time </p> 
         <iframe
         src="/resume.pdf"
         width="100%"
