@@ -8,9 +8,9 @@ const Experience = () => {
             Experience
         </div>
 
-        <ul>
-          <li> <h2> Programming Instructor Part-Time</h2> </li>
-          <ul>
+        <ul className='ml-4 list-disc pl-2'>
+          <li> <h2 className='text-2xl text-white'> Programming Instructor Part-Time</h2> </li>
+          <ul className='list-disc pl-2'>
           <Image
           src="/learn2code.jpeg"
           width={300}
@@ -21,6 +21,7 @@ const Experience = () => {
             <li> Dec 2023 - Jan 2024 </li>
           </ul> 
         </ul>
+      <br/>
     </section>
   )
 }

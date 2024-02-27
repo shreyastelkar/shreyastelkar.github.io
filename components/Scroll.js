@@ -165,13 +165,13 @@ const Scroll = () => {
                             />
                     </div>
 
-                    <p className="text-white"> 
-                        <ul>
-                            <li>Finds the shortest hamiltonian path in C using the graph and path methods.</li>
-                            <li>Gets the total distance on route</li>
-                            
-                         </ul>
-                    </p>
+                    
+                    <ul className="list-disc pl-2 text-white ml-24 font-semibold lg:text-3xl md:text-xl">
+                        <li>Finds the shortest hamiltonian path in C using the graph and path methods.</li>
+                        <li>Gets the total distance on route</li>
+                        
+                    </ul>
+               
                 </div>
 
 
