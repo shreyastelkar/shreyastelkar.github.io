@@ -3,11 +3,11 @@ import React from 'react'
 const Resume = () => {
   return (
     <div>
-        Resume
+        <h1 className = 'text-center mt-12 mb-4 font-semibold text-6xl underline text-white'>Resume</h1>
         <iframe
         src="/resume.pdf"
         width="100%"
-        height="600px"
+        height="1000px"
         style={{ border: 'none' }}
         />
     </div>

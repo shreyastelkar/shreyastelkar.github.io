@@ -165,10 +165,12 @@ const Scroll = () => {
                             />
                     </div>
 
-                    <p className="text-white"> Finds the shortest hamiltonian path using the graph and path methods built. 
-                        The path uses the stack and graph to push vertices on the the path or pop them if they are connected. It accumulates the total distance of
-                         the path whenever it pushes the vertex onto the path. It prints the hamiltonian path based on the 
-                         vertex connections specified in the graph.
+                    <p className="text-white"> 
+                        <ul>
+                            <li>Finds the shortest hamiltonian path in C using the graph and path methods.</li>
+                            <li>Gets the total distance on route</li>
+                            
+                         </ul>
                     </p>
                 </div>
 
