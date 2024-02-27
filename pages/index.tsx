@@ -5,7 +5,7 @@ import Projects from "../components/Projects";
 import Experience from "../components/Experience"
 import Footer from "../components/Footer"
 import Navigation from "../components/Navigation"
-import Contact from "../components/Contact"
+import Creative from "../components/Creative"
 
 // Optionally import Contact and ChakraProvider if needed
 
@@ -24,7 +24,7 @@ export default function Home() {
         <Experience />
       </div>
       <div>
-        <Contact />
+        <Creative />
       </div> 
       <div className="bg-black text-white">
         <Footer />

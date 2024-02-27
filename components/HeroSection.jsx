@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link';
+import Obfuscate from 'react-obfuscate';
 
 const HeroSection = () => {
   return (
@@ -31,17 +32,22 @@ const HeroSection = () => {
                 </p>
             
                 <div>
-                    <Link href="/#contact">
-                    <button className='px-6 py-3 w-full rounded-full mr-4 bg-[#c73d3d] hover:bg-slate-200 text-white'> 
-                        Contact Me! 
-                    </button>
-                    </Link>
+                    <Obfuscate
+                    className="btn btn-outline-dark"
+                    email="shretel@gmail.com"
+                    >
+                        <button className='px-6 py-3 w-full rounded-full mr-4 bg-[#c73d3d] hover:bg-slate-200 text-white'> 
+                            Contact Me! 
+                        </button>
+                    </Obfuscate>
                 </div>
             
                 <div>
-                    <button className='px-6 py-3 w-full rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border border-white mt-3'> 
-                        Resume 
-                    </button>
+                    <Link href='/resume' passHref>
+                        <button className='px-6 py-3 w-full rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border border-white mt-3'> 
+                            Resume 
+                        </button>
+                    </Link>
                 </div>
             
             {/* </motion.div> */}
