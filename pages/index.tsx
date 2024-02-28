@@ -27,7 +27,7 @@ export default function Home() {
       <div>
         <Creative />
       </div> 
-      <div className="bg-black text-white">
+      <div className= "text-white">
         <Footer />
       </div>
     </main>

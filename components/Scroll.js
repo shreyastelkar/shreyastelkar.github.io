@@ -184,19 +184,19 @@ const Scroll = () => {
                 </div>
 
 
-                <div className="scroll-section1 bg-black">
+                <div className="scroll-section1 bg-[#3d4842]">
                     <div className="container1">
                         <div className="mt-24 ml-24">
                             <div className="container">
                             <h1 className="text-[#4dd48f] text-bold text-4xl mb-8"> Morse Code Decoder </h1>
                                 <span>
-                                <figure className="mb-5">
+                                {/* <figure className="">
                                     <div className="hover:opacity-20 mt-4">
                                         <a href="https://github.com/SHREYASTELKAR/">
                                             <img className="scroll-container lazyload ml-24" src="/github.webp" width="50px" height="50px"/>
                                         </a>
                                     </div>
-                                </figure>
+                                </figure> */}
                                 </span>
                             </div>
                             <ul className="text-[#edd6d6] font-bold text-2xl mb-4 pl-2 list-disc">
