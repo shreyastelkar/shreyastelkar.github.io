@@ -12,6 +12,7 @@ import Creative from "../components/Creative"
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-[#19432d]" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <Navigation />
       <div className= "container mt-20 mx-auto px-12 py-4">
         <HeroSection />
