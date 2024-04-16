@@ -25,13 +25,13 @@ export const TicTacToe = () => {
     return cols * x + y;
   };
 
-  const checkWinHorizontal = () => {
+  const checkWinHorizontal = (newGrid) => {
     for (let x = 0; x < rows; x += 1) {
-      for (let y = 0; y < cols; y += 1) {
+      for (let y = 0; y < cols - 2; y += 1) {
         if (
-          grid[gridIndex(x, y)] == grid[gridIndex(x, y + 1)] &&
-          grid[gridIndex(x, y + 1)] == grid[gridIndex(x, y + 2)] &&
-          grid[gridIndex(x, y)] != null
+          newGrid[gridIndex(x, y)] == newGrid[gridIndex(x, y + 1)] &&
+          newGrid[gridIndex(x, y + 1)] == newGrid[gridIndex(x, y + 2)] &&
+          newGrid[gridIndex(x, y)] != null
         ) {
           return true;
         }
@@ -48,7 +48,8 @@ export const TicTacToe = () => {
       newGrid[i] = piece;
       setGrid(newGrid);
       setTurn((turn + 1) % pieces.length);
-      const isWin = checkWinHorizontal();
+      let isWin = checkWinHorizontal(newGrid);
+
       if (isWin == true) {
         setWin("You Win");
       }
