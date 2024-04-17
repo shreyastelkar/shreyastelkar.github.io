@@ -19,7 +19,6 @@ export default function Home() {
       ></meta>
       <Navigation />
       <div className="container mt-20 mx-auto px-12 py-4">
-        <TicTacToe />
         <HeroSection />
         <Background />
       </div>
@@ -28,6 +27,7 @@ export default function Home() {
       </div>
       <div>
         <Demos />
+        <TicTacToe />
       </div>
       <div>
         <Experience />

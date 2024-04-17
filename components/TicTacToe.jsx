@@ -2,8 +2,6 @@ import { useState } from "react";
 
 export const TicTacToe = () => {
   const style = {
-    width: 400,
-    height: 400,
     border: "1px solid",
     boxSizing: "content-box",
   };
@@ -12,11 +10,7 @@ export const TicTacToe = () => {
   const pieces = ["X", "O"];
   const [turn, setTurn] = useState(0);
   const [grid, setGrid] = useState(Array(rows * cols).fill(null));
-  const [win, setWin] = useState("in progress");
-
-  const isEmpty = (i) => {
-    return grid[i] === null;
-  };
+  const [win, setWin] = useState("");
 
   const gridIndex = (x, y) => {
     return cols * x + y;
@@ -94,20 +88,18 @@ export const TicTacToe = () => {
     const piece = pieces[turn];
     const newGrid = [...grid];
 
-    if (isEmpty(i) && win !== "You Win") {
+    if (grid[i] == null && win !== "You Win") {
       newGrid[i] = piece;
       setGrid(newGrid);
       setTurn((turn + 1) % pieces.length);
-      let isWin = checkWin(newGrid);
-
-      if (isWin == true) {
+      if (checkWin(newGrid)) {
         setWin("You Win");
       }
     }
   };
 
   const gridJSX = grid.map((value, i) => {
-    return <Grid value={value} index={i} clickHandler={clickHandler} />;
+    return <Grid value={value} index={i} clickHandler={clickHandler} key={i} />;
   });
 
   return (
@@ -146,7 +138,7 @@ export const TicTacToe = () => {
       <button
         onClick={() => {
           setGrid(Array(rows * cols).fill(null));
-          setWin("in progress");
+          setWin("");
         }}
       >
         Reset
