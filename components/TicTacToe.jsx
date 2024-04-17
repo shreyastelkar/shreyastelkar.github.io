@@ -17,15 +17,11 @@ export const TicTacToe = () => {
   };
 
   const checkWinDirection = (newGrid, direction) => {
-    const getDelta = (direction) => {
-      const deltas = {
-        horizontal: [0, 1],
-        vertical: [1, 0],
-        diagRight: [1, 1],
-        diagLeft: [1, -1],
-      };
-
-      return deltas[direction];
+    const deltas = {
+      horizontal: [0, 1],
+      vertical: [1, 0],
+      diagRight: [1, 1],
+      diagLeft: [1, -1],
     };
 
     const conditions = {
@@ -36,16 +32,17 @@ export const TicTacToe = () => {
     };
 
     const isDiagLeft = direction === "diagLeft";
-    for (let x = 0; conditions[direction][0]; x += 1) {
+    for (let x = 0; x < conditions[direction][0]; x += 1) {
       for (
         let y = isDiagLeft ? cols - 1 : 0;
-        isDiagLeft ? y > 1 : conditions[direction][1];
+        isDiagLeft ? y > 1 : y < conditions[direction][1];
         y = isDiagLeft ? y - 1 : y + 1
       ) {
-        [xDelta, yDelta] = getDelta(direction);
+        let xDelta, yDelta;
+        [xDelta, yDelta] = deltas[direction];
         let first = newGrid[gridIndex(x, y)];
         let second = newGrid[gridIndex(x + xDelta, y + yDelta)];
-        let thid = newGrid[gridIndex(x + 2 * xDelta, y + 2 * yDelta)];
+        let third = newGrid[gridIndex(x + 2 * xDelta, y + 2 * yDelta)];
 
         if (first == second && second == third && first != null) {
           return true;
@@ -56,12 +53,13 @@ export const TicTacToe = () => {
   };
   const checkWin = (newGrid) => {
     return (
-      checkWinDirection("horizontal") ||
-      checkWinDirection("vertical") ||
-      checkWinDirection("diagRight") ||
-      checkWinDirection("diagLeft")
+      checkWinDirection(newGrid, "horizontal") ||
+      checkWinDirection(newGrid, "vertical") ||
+      checkWinDirection(newGrid, "diagRight") ||
+      checkWinDirection(newGrid, "diagLeft")
     );
   };
+
   const clickHandler = (i) => {
     const piece = pieces[turn];
     const newGrid = [...grid];
