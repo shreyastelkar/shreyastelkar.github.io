@@ -103,9 +103,10 @@ export const TicTacToe = () => {
   });
 
   return (
-    <>
+    <div className="ml-12">
       <div> {win} </div>
       <div
+        className="mb-4"
         style={{
           ...style,
           width: `${cols * 100}px`,
@@ -136,6 +137,7 @@ export const TicTacToe = () => {
         </label>
       </div>
       <button
+        className="text-xl text-[#cc0000]"
         onClick={() => {
           setGrid(Array(rows * cols).fill(null));
           setWin("");
@@ -143,7 +145,7 @@ export const TicTacToe = () => {
       >
         Reset
       </button>
-    </>
+    </div>
   );
 };
 
