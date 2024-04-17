@@ -16,59 +16,38 @@ export const TicTacToe = () => {
     return cols * x + y;
   };
 
-  const checkWinHorizontal = (newGrid) => {
-    for (let x = 0; x < rows; x += 1) {
-      for (let y = 0; y < cols - 2; y += 1) {
-        if (
-          newGrid[gridIndex(x, y)] == newGrid[gridIndex(x, y + 1)] &&
-          newGrid[gridIndex(x, y + 1)] == newGrid[gridIndex(x, y + 2)] &&
-          newGrid[gridIndex(x, y)] != null
-        ) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
+  const checkWinDirection = (newGrid, direction) => {
+    const getDelta = (direction) => {
+      const deltas = {
+        horizontal: [0, 1],
+        vertical: [1, 0],
+        diagRight: [1, 1],
+        diagLeft: [1, -1],
+      };
 
-  const checkWinVertical = (newGrid) => {
-    for (let x = 0; x < rows - 2; x += 1) {
-      for (let y = 0; y < cols; y += 1) {
-        if (
-          newGrid[gridIndex(x, y)] == newGrid[gridIndex(x + 1, y)] &&
-          newGrid[gridIndex(x + 1, y)] == newGrid[gridIndex(x + 2, y)] &&
-          newGrid[gridIndex(x, y)] != null
-        ) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-  const checkWinDiagonalRight = (newGrid) => {
-    for (let x = 0; x < rows - 2; x += 1) {
-      for (let y = 0; y < cols - 2; y += 1) {
-        if (
-          newGrid[gridIndex(x, y)] == newGrid[gridIndex(x + 1, y + 1)] &&
-          newGrid[gridIndex(x + 1, y + 1)] ==
-            newGrid[gridIndex(x + 2, y + 2)] &&
-          newGrid[gridIndex(x, y)] != null
-        ) {
-          return true;
-        }
-      }
-    }
-    return false;
-  };
-  const checkWinDiagonalLeft = (newGrid) => {
-    for (let x = 0; x < rows - 2; x += 1) {
-      for (let y = cols - 1; y > 1; y -= 1) {
-        if (
-          newGrid[gridIndex(x, y)] == newGrid[gridIndex(x + 1, y - 1)] &&
-          newGrid[gridIndex(x + 1, y - 1)] ==
-            newGrid[gridIndex(x + 2, y - 2)] &&
-          newGrid[gridIndex(x, y)] != null
-        ) {
+      return deltas[direction];
+    };
+
+    const conditions = {
+      horizontal: [rows, cols - 2],
+      vertical: [rows - 2, cols],
+      diagRight: [rows - 2, cols - 2],
+      diagLeft: [rows - 2, 1],
+    };
+
+    const isDiagLeft = direction === "diagLeft";
+    for (let x = 0; conditions[direction][0]; x += 1) {
+      for (
+        let y = isDiagLeft ? cols - 1 : 0;
+        isDiagLeft ? y > 1 : conditions[direction][1];
+        y = isDiagLeft ? y - 1 : y + 1
+      ) {
+        [xDelta, yDelta] = getDelta(direction);
+        let first = newGrid[gridIndex(x, y)];
+        let second = newGrid[gridIndex(x + xDelta, y + yDelta)];
+        let thid = newGrid[gridIndex(x + 2 * xDelta, y + 2 * yDelta)];
+
+        if (first == second && second == third && first != null) {
           return true;
         }
       }
@@ -77,13 +56,12 @@ export const TicTacToe = () => {
   };
   const checkWin = (newGrid) => {
     return (
-      checkWinDiagonalLeft(newGrid) ||
-      checkWinDiagonalRight(newGrid) ||
-      checkWinHorizontal(newGrid) ||
-      checkWinVertical(newGrid)
+      checkWinDirection("horizontal") ||
+      checkWinDirection("vertical") ||
+      checkWinDirection("diagRight") ||
+      checkWinDirection("diagLeft")
     );
   };
-
   const clickHandler = (i) => {
     const piece = pieces[turn];
     const newGrid = [...grid];
