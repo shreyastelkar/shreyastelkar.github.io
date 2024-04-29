@@ -8,6 +8,7 @@ import Navigation from "../components/Navigation";
 import Creative from "../components/Creative";
 import Demos from "../components/Demos";
 import { TicTacToe } from "../components/TicTacToe";
+import { PongGame } from "../components/PongGame";
 // Optionally import Contact and ChakraProvider if needed
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <div>
         <Demos />
         <TicTacToe />
+        <PongGame />
       </div>
       <div>
         <Experience />

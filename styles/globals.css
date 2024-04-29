@@ -127,3 +127,15 @@ table, td {
   width:150px;
   height: 50px;
 }
+
+.center{
+    display : flex;
+    justify-content: center;
+     align-items : center;
+}
+
+canvas {
+    width: 600px;
+    height: 500px;
+    border: 1px solid black;
+}
