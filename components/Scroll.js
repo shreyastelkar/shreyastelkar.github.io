@@ -27,7 +27,7 @@ const Scroll = () => {
           scrub: 0.6,
           pin: true,
         },
-      },
+      }
     );
 
     return () => {
@@ -49,53 +49,105 @@ const Scroll = () => {
     <section className="scroll-section-outer">
       <div ref={triggerRef}>
         <div ref={sectionRef} className="scroll-section-inner">
-          {/* <div className="scroll-section1  text-white mt-10 px-4"> */}
-          {/*     <div className="container1 bg-[#1f1b18] rounded-lg"> */}
-          {/*         <img className="scroll-container lazyload mr-12 mb-2 ml-12" src="/anime.png" width="500px" height="500px"/>  */}
-          {/*         <div className="container"> */}
-          {/*             <img className="scroll-container lazyload mb-4 ml-12 mt-4" src="/bell.png" width="200px" height="50px"/> */}
-          {/*             <iframe className="ml-4" width="460" height="315" src="https://www.youtube.com/embed/aaxKlj55qT4?si=r3JcpMqYKfOFly95&amp;controls=0"  */}
-          {/*             title="YouTube video player" frameborder="0"  */}
-          {/*             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;  */}
-          {/*             picture-in-picture; web-share" allowfullscreen>              */}
-          {/*             </iframe> */}
+          <div className="scroll-section1  text-white mt-10 px-4">
+            <div className="container1 bg-[#1f1b18] rounded-lg">
+              <img
+                className="scroll-container lazyload mr-12 mb-2 ml-12"
+                src="/anime.png"
+                width="500px"
+                height="500px"
+              />
+              <div className="container">
+                <img
+                  className="scroll-container lazyload mb-4 ml-12 mt-4"
+                  src="/bell.png"
+                  width="200px"
+                  height="50px"
+                />
+                <iframe
+                  className="ml-4"
+                  width="460"
+                  height="315"
+                  src="https://www.youtube.com/embed/aaxKlj55qT4?si=r3JcpMqYKfOFly95&amp;controls=0"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+                  picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div className="font-semibold flex-1 ml-10 mr-10 text-center bg-[#1a325a] rounded">
+              <ul className="list-disc pl-2 text-xl text-white">
+                <li>
+                  {" "}
+                  <span className="text-[#4959d3] font-bold xl-text-5xl lg-text-3xl">
+                    Smart Bell
+                  </span>{" "}
+                  was a 5 member team, 2 quarter senior desgin project, smart
+                  door bell system integrated with
+                  <span className="text-[#df664e] font-bold">
+                    {" "}
+                    Raspberry Pi3{" "}
+                  </span>
+                  and a mobile app integrated with{" "}
+                  <span className="text-[#4e92df] font-bold">Flutter.</span>
+                </li>
+                <li>
+                  {" "}
+                  Hands-free sensor doorbell detection system that sends push
+                  notifications to the user, Active Livestream, and One-way
+                  communication.
+                </li>
+                <li> Cheaper alternative to RING by Amazon. </li>
+              </ul>
 
-          {/*         </div> */}
-          {/*     </div> */}
-          {/*     <div className="font-semibold flex-1 ml-10 mr-10 text-center bg-[#1a325a] rounded"> */}
-          {/*         <ul className='list-disc pl-2 text-xl text-white'> */}
-          {/*             <li> <span className="text-[#4959d3] font-bold xl-text-5xl lg-text-3xl">Smart Bell</span> was a 5 member team, 2 quarter senior desgin project, smart door bell system integrated with  */}
-          {/*             <span className="text-[#df664e] font-bold"> Raspberry Pi3 </span> */}
-          {/*             and a mobile app integrated with <span className="text-[#4e92df] font-bold">Flutter.</span></li> */}
-          {/*             <li> Hands-free sensor doorbell detection system that sends push notifications to the user, Active Livestream, and One-way communication.</li> */}
-          {/*             <li> Cheaper alternative to RING by Amazon. </li> */}
-          {/*         </ul>  */}
+              <div className="container mt-8">
+                <figure className="mb-5">
+                  <div className="hover:opacity-20">
+                    <a href="https://smartbell-372ba.web.app">
+                      <img
+                        className="scroll-container lazyload"
+                        src="/logo.png"
+                        width="100px"
+                        height="100px"
+                      />
+                    </a>
+                  </div>
+                  <figcaption className="font-semibold italic text-center">
+                    Click to vist <br />
+                    the website
+                  </figcaption>
+                </figure>
 
-          {/*         <div className="container mt-8"> */}
-          {/*             <figure className="mb-5"> */}
-          {/*                 <div className="hover:opacity-20"> */}
-          {/*                     <a href="https://smartbell-372ba.web.app"> */}
-          {/*                         <img className="scroll-container lazyload" src="/logo.png" width="100px" height="100px"/> */}
-          {/*                     </a> */}
-          {/*                 </div> */}
-          {/*                 <figcaption className="font-semibold italic text-center">Click to vist <br/>the website</figcaption> */}
-          {/*             </figure> */}
-
-          {/*             <figure className="mb-5"> */}
-          {/*                 <div className="hover:opacity-20"> */}
-          {/*                     <a href="https://github.com/SHREYASTELKAR/Smart-Bell"> */}
-          {/*                         <img className="scroll-container lazyload ml-24" src="/github.webp" width="100px" height="100px"/> */}
-          {/*                     </a> */}
-          {/*                 </div> */}
-          {/*                     <figcaption className="font-semibold italic text-center ml-24 mb-2">View Code</figcaption> */}
-          {/*             </figure> */}
-          {/*             <br/> */}
-          {/*             <iframe width="360" height="280" src="https://www.youtube.com/embed/bjiRkU82dVg?si=Rbhjj02S5_5VSoVK" title="YouTube video player"  */}
-          {/*             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  */}
-          {/*             allowfullscreen></iframe> */}
-          {/*         </div> */}
-          {/*     </div>       */}
-          {/* </div> */}
+                <figure className="mb-5">
+                  <div className="hover:opacity-20">
+                    <a href="https://github.com/SHREYASTELKAR/Smart-Bell">
+                      <img
+                        className="scroll-container lazyload ml-24"
+                        src="/github.webp"
+                        width="100px"
+                        height="100px"
+                      />
+                    </a>
+                  </div>
+                  <figcaption className="font-semibold italic text-center ml-24 mb-2">
+                    View Code
+                  </figcaption>
+                </figure>
+                <br />
+                <iframe
+                  width="360"
+                  height="280"
+                  src="https://www.youtube.com/embed/bjiRkU82dVg?si=Rbhjj02S5_5VSoVK"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
 
           <div className="scroll-section1 bg-[#db3a3a] flex">
             <div className="mt-16 ml-32">
