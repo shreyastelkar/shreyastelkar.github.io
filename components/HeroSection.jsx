@@ -1,78 +1,109 @@
-'use client'
-import React from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import Link from 'next/link';
-import Obfuscate from 'react-obfuscate';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Obfuscate from "react-obfuscate";
 
 const HeroSection = () => {
   return (
-    <section>
-        <div className='grid grid-cols-1 lg:grid-cols-12'>
-           {/* <motion.div
-                initial={{ opacity: 0}}
-                animate={{ opacity: 1}}
-                transition={{ duration: 0.5 }}
-                className='col-span-7 place-self-center text-center sm:text-left'
-            >                 */}
-            <div className='col-span-7 place-self-center text-center sm:text-left'>
-                <h1 className= "mb-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-600"> 
-                    Shreyas <span className='hover:text-[#ca9d7d] hover:bg-[#2e1d12]'>Telkar</span>
-                </h1>
+    <section className="flex items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="col-span-7 space-y-8"
+        >
+          {/* Name and Title */}
+          <div className="space-y-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
+              <span className="gradient-text">Shreyas</span>
+              <br />
+              <span className="text-slate-200">Telkar</span>
+            </h1>
 
-                <h2 className='sm:text-3xl lg:text-3xl underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500'> 
-                    About 
-                </h2>
-
-                <p className='text-white text-base sm:text-lg mb-6 lg:text-xl'>
-                    An innovative Computer Engineer and Software Developer that provides modern solutions to issues
-                    we face in our daily lives. From working on an mobile app integrated embedded systems project to
-                    constructing a compiler for C, I posses a variety of skill sets applicable to many tech industries.
-                    Feel free to reach out to me!
-                </p>
-            
-                <div>
-                    <Obfuscate
-                    className="btn btn-outline-dark"
-                    email="shretel@gmail.com"
-                    >
-                        <button className='px-6 py-3 w-full rounded-full mr-4 bg-[#c73d3d] hover:bg-slate-200 text-white'> 
-                            Contact Me! 
-                        </button>
-                    </Obfuscate>
-                </div>
-            
-                <div>
-                    <Link href='/resume' passHref>
-                        <button className='px-6 py-3 w-full rounded-full mr-4 bg-transparent hover:bg-slate-800 text-white border border-white mt-3'> 
-                            Resume 
-                        </button>
-                    </Link>
-                </div>
-            
-            {/* </motion.div> */}
+            <div className="flex items-center space-x-4">
+              <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-300">
+                Software Engineer
+              </h2>
             </div>
-            {/* <motion.div initial={{ opacity: 0.2}}
-                animate={{ opacity: 1}}
-                transition={{ duration: 0.2 }}
-                className='col-span-5 place-self-center mt-4 lg:mt-10'> */}
-            <div className='col-span-5 place-self-center mt-4 lg:mt-10'>
-                <div className= 'bg-[#c77438] w-[420px] h-[420px] lg:w-[420px] lg:h-[420px] relative bg-cover'>
-                    <Image 
-                    src='/profile_pic.jpeg'
-                    alt='profile_img'
-                    className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-                    style={{borderRadius: '15px'}} 
-                    width={400}
-                    height={400}
-                    />
-                </div>
+          </div>
 
-            {/* </motion.div> */}
+          {/* Description */}
+          <div className="space-y-6">
+            <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
+              Innovative Computer Engineer and Software Developer crafting
+              modern solutions for real-world challenges. From embedded systems
+              to mobile applications, I bring diverse technical expertise to
+              create impactful software solutions.
+            </p>
+
+            <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+              <span className="px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700">
+                Full-Stack Development
+              </span>
+              <span className="px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700">
+                Embedded Systems
+              </span>
+              <span className="px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700">
+                Mobile Development
+              </span>
+              <span className="px-3 py-1 bg-slate-800/50 rounded-full border border-slate-700">
+                Compiler Design
+              </span>
             </div>
-        </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <Obfuscate className="inline-block" email="shretel@gmail.com">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Get In Touch
+              </motion.button>
+            </Obfuscate>
+
+            <Link href="/resume" passHref>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-transparent hover:bg-slate-800 text-slate-300 font-semibold rounded-lg border-2 border-slate-600 hover:border-slate-500 transition-all duration-300"
+              >
+                View Resume
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="col-span-5 flex justify-center lg:justify-end"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl blur-xl"></div>
+            <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-2xl shadow-2xl">
+              <Image
+                src="/profile_pic.jpeg"
+                alt="Shreyas Telkar - Software Engineer"
+                className="rounded-xl object-cover"
+                width={450}
+                height={450}
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;

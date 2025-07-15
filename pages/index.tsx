@@ -9,37 +9,69 @@ import Creative from "../components/Creative";
 import Demos from "../components/Demos";
 import { TicTacToe } from "../components/TicTacToe";
 import { PongGame } from "../components/PongGame";
-// Optionally import Contact and ChakraProvider if needed
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#19432d]">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <Navigation />
-      <div className="container mt-20 mx-auto px-12 py-4">
-        <HeroSection />
-        <Background />
-      </div>
-      <div className="border border-black border-width:500px bg-[#323030]">
-        <Projects />
-      </div>
-      <div>
-        <Demos />
-        <TicTacToe />
-        <PongGame />
-      </div>
-      <div>
-        <Experience />
-      </div>
-      <div>
-        <Creative />
-      </div>
-      <div className="text-white">
-        <Footer />
-      </div>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-4">
+        <div className="container mx-auto px-6 lg:px-12">
+          <HeroSection />
+        </div>
+      </section>
+
+      {/* Background Section */}
+      <section className="pt-4 pb-12 bg-slate-800/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Background />
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Projects />
+        </div>
+      </section>
+
+      {/* Demos Section */}
+      <section className="py-16 bg-slate-800/30">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Demos />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+            <div className="glass-effect rounded-xl p-6">
+              <TicTacToe />
+            </div>
+            <div className="glass-effect rounded-xl p-6">
+              <PongGame />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Experience />
+        </div>
+      </section>
+
+      {/* Creative Section */}
+      {/* <section className="py-16 bg-slate-800/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Creative />
+        </div>
+      </section> */}
+
+      {/* Footer */}
+      <footer className="py-8 border-t border-slate-700">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Footer />
+        </div>
+      </footer>
     </main>
   );
 }
