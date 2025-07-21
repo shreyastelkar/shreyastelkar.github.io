@@ -83,6 +83,7 @@ const TabData = [
               width={80}
               height={80}
               className="rounded-lg"
+              alt="UCSC Baskin Engineering logo"
             />
           </div>
           <div>
@@ -106,7 +107,7 @@ const TabData = [
           <div className="flex items-center justify-between">
             <span className="text-slate-300">Academic Achievement:</span>
             <span className="text-green-400 font-medium">
-              Dean's Honors List: Fall 2023
+              Dean&apos;s Honors List: Fall 2023
             </span>
           </div>
         </div>
@@ -139,14 +140,13 @@ const TabData = [
           </h3>
           <div className="space-y-4">
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
               <div>
                 <h4 className="text-white font-medium">
-                  Automotive Embedded Design
+                  Full-Stack Development
                 </h4>
                 <p className="text-slate-400 text-sm">
-                  Developing embedded systems for automotive applications and
-                  IoT devices
+                  Building complete web applications and software solutions
                 </p>
               </div>
             </div>
@@ -156,17 +156,6 @@ const TabData = [
                 <h4 className="text-white font-medium">Cybersecurity</h4>
                 <p className="text-slate-400 text-sm">
                   Computer Security, Data Center Security, and Network Security
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-              <div>
-                <h4 className="text-white font-medium">
-                  Full-Stack Development
-                </h4>
-                <p className="text-slate-400 text-sm">
-                  Building complete web applications and software solutions
                 </p>
               </div>
             </div>
@@ -249,12 +238,12 @@ const Background = () => {
               Professional Overview
             </h3>
             <p className="text-slate-300 text-lg leading-relaxed">
-              As a recent Baskin Engineering graduate from UCSC, I've developed
-              strong collaborative skills through team environments and built
-              meaningful connections with fellow students. My education has
-              exposed me to diverse hardware and software technologies, which
-              I've further enhanced through independent projects and hands-on
-              experience.
+              As a recent Baskin Engineering graduate from UCSC, I&apos;ve
+              developed strong collaborative skills through team environments
+              and built meaningful connections with fellow students. My
+              education has exposed me to diverse hardware and software
+              technologies, which I&apos;ve further enhanced through independent
+              projects and hands-on experience.
             </p>
           </div>
 

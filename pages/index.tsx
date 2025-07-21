@@ -6,7 +6,7 @@ import Experience from "../components/Experience";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import Creative from "../components/Creative";
-import Demos from "../components/Demos";
+
 import { TicTacToe } from "../components/TicTacToe";
 import { PongGame } from "../components/PongGame";
 
@@ -30,32 +30,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Experience Section */}
       <section className="py-16">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Experience />
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-16 bg-slate-800/30">
         <div className="container mx-auto px-6 lg:px-12">
           <Projects />
         </div>
       </section>
 
       {/* Demos Section */}
-      <section className="py-16 bg-slate-800/30">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Demos />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-            <div className="glass-effect rounded-xl p-6">
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-6xl font-bold gradient-text mb-4">
+              Interactive Demos
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              I enjoy teaching myself and learning new technologies. Here are
+              some interactive demos I&apos;ve built using React and modern web
+              technologies.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-16">
+            <div className="glass-effect rounded-xl p-8">
               <TicTacToe />
             </div>
-            <div className="glass-effect rounded-xl p-6">
+            <div className="glass-effect rounded-xl p-8">
               <PongGame />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Experience />
         </div>
       </section>
 
@@ -67,11 +76,7 @@ export default function Home() {
       </section> */}
 
       {/* Footer */}
-      <footer className="py-8 border-t border-slate-700">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Footer />
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

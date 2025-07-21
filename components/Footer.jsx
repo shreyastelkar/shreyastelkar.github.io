@@ -26,28 +26,13 @@ const Footer = () => {
 
   return (
     <footer className="py-6 border-t border-slate-700">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
-          {/* Brand */}
-          <div className="flex items-center space-x-3 px-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">
-              ST
-            </div>
-            <div>
-              <span className="text-base font-bold gradient-text">
-                Shreyas Telkar
-              </span>
-              <p className="text-slate-400 text-sm">
-                Software Engineer & Creative Developer
-              </p>
-            </div>
-          </div>
-
+      <div className="w-full px-6 lg:px-12">
+        <div className="flex flex-col md:flex-row justify-end items-end space-y-3 md:space-y-0">
           {/* Contact Info and Social Links in Row */}
           <div className="flex items-center space-x-8 px-2">
             <div className="text-center">
               <p className="text-slate-300 font-medium text-sm">
-                Let's work together
+                Let&apos;s work together
               </p>
               <p className="text-slate-400 text-sm">
                 Available for new opportunities

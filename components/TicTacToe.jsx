@@ -69,7 +69,7 @@ export const TicTacToe = () => {
       setGrid(newGrid);
       setTurn((turn + 1) % pieces.length);
       if (checkWin(newGrid)) {
-        setWin("You Win");
+        setWin(`${piece} Wins!`);
       }
     }
   };
@@ -79,8 +79,9 @@ export const TicTacToe = () => {
   });
 
   return (
-    <div className="ml-12">
-      <div> {win} </div>
+    <div className="flex flex-col items-center justify-center text-center min-h-[400px] w-full">
+      <h3 className="text-2xl font-bold text-white mb-6">Tic Tac Toe</h3>
+      <div className="text-xl font-bold text-white mb-4"> {win} </div>
       <div
         className="mb-4"
         style={{
@@ -92,7 +93,7 @@ export const TicTacToe = () => {
         {gridJSX}
       </div>
 
-      <div>
+      {/* <div>
         <label>
           Number of Columns:
           <input
@@ -111,7 +112,7 @@ export const TicTacToe = () => {
             }}
           />
         </label>
-      </div>
+      </div> */}
       <button
         className="text-xl text-[#cc0000]"
         onClick={() => {

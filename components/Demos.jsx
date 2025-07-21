@@ -8,14 +8,15 @@ const Demos = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="text-center mb-12"
+      className="text-center mb-16"
     >
       <h2 className="text-4xl lg:text-6xl font-bold gradient-text mb-4">
         Interactive Demos
       </h2>
       <p className="text-slate-400 text-lg max-w-2xl mx-auto">
         I enjoy teaching myself and learning new technologies. Here are some
-        interactive demos I've built using React and modern web technologies.
+        interactive demos I&apos;ve built using React and modern web
+        technologies.
       </p>
     </motion.div>
   );

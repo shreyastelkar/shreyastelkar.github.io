@@ -40,11 +40,12 @@ const Timer = () => {
 
   return (
     <>
-      <div className="text-center text-white text-xl mt-8">
-        <button className="text-[#cc0000]" class="btn" onClick={handleClick}>
+      <h3 className="text-2xl font-bold text-white mb-6 text-center">Pong</h3>
+      <div className="text-center text-white text-lg mb-4">
+        <button className="text-[#cc0000] font-bold" onClick={handleClick}>
           Start Game
         </button>
-        <h1> Time Left: {time} sec</h1>
+        <div className="mt-2">Time Left: {time} sec</div>
       </div>
       <Paddle
         start={start}
@@ -60,9 +61,9 @@ const Timer = () => {
 
 const Paddle = ({ start, intervalTimeRef, setTime, setStart, gameTime }) => {
   const [x1, setX1] = useState(5);
-  const [y1, setY1] = useState(200);
-  const [x2, setX2] = useState(565);
-  const [y2, setY2] = useState(200);
+  const [y1, setY1] = useState(125);
+  const [x2, setX2] = useState(865);
+  const [y2, setY2] = useState(125);
   const delta = 20;
 
   var keys = {};
@@ -89,7 +90,7 @@ const Paddle = ({ start, intervalTimeRef, setTime, setStart, gameTime }) => {
     }
     if (keys["k"]) {
       setY2((y2) => {
-        return y2 < 400 ? y2 + delta : y2;
+        return y2 < 250 ? y2 + delta : y2;
       });
     }
     if (keys["i"]) {
@@ -99,7 +100,7 @@ const Paddle = ({ start, intervalTimeRef, setTime, setStart, gameTime }) => {
     }
     if (keys["s"]) {
       setY1((y1) => {
-        return y1 < 400 ? y1 + delta : y1;
+        return y1 < 250 ? y1 + delta : y1;
       });
     }
   };
@@ -136,8 +137,8 @@ const Ball = ({
   setStart,
   gameTime,
 }) => {
-  const [ballX, setBallX] = useState(300);
-  const [ballY, setBallY] = useState(250);
+  const [ballX, setBallX] = useState(450);
+  const [ballY, setBallY] = useState(175);
   const [player1Score, setPlayer1Score] = useState(0);
   const [player2Score, setPlayer2Score] = useState(0);
   const ballYRef = useRef(ballY);
@@ -145,12 +146,13 @@ const Ball = ({
   const angle = useRef(1);
   const canChangeDirectionRef = useRef(true);
   const pastPaddleRef = useRef(false);
+  const scoredRef = useRef(false);
   const ballWidth = 25;
   const paddleWidth = 30;
   const paddleHeight = 100;
-  const velocity = 20;
-  const canvasHeight = 500;
-  const canvasWidth = 600;
+  const velocity = 35;
+  const canvasHeight = 350;
+  const canvasWidth = 900;
 
   let x1Ref = useRef(x1);
   let x2Ref = useRef(x2);
@@ -181,57 +183,69 @@ const Ball = ({
     if (start) {
       intervalBallRef.current = setInterval(() => {
         setBallX((x) => {
-          // if (x < x1Ref.current + paddleWidth - 2) {
-          //   pastPaddleRef.current = true;
-          // }
+          // Check if ball is in the middle area (not near paddles)
           if (
-            x > x1Ref.current + paddleWidth ||
-            x < x2Ref.current - ballWidth
-
-            //&&|
-            //            !pastPaddleRef.current
+            x > x1Ref.current + paddleWidth + 50 &&
+            x < x2Ref.current - ballWidth - 50
           ) {
             canChangeDirectionRef.current = true;
+            pastPaddleRef.current = false;
           }
+
+          // Only check for paddle collisions if we can change direction
           if (canChangeDirectionRef.current) {
             let isCollision = false;
+
+            // Left paddle collision
             if (
               x <= x1Ref.current + paddleWidth &&
-              x > x1Ref.current &&
-              collisionCheck(y1Ref.current)
+              x > x1Ref.current - 10 &&
+              collisionCheck(y1Ref.current) &&
+              direction.current < 0 // Ball moving left
             ) {
               isCollision = true;
-              x = x1Ref.current + paddleWidth + 10;
-            } else if (
-              x >= x2Ref.current - ballWidth &&
-              collisionCheck(y2Ref.current)
-            ) {
-              isCollision = true;
-              x = x2Ref.current - ballWidth - 10;
+              x = x1Ref.current + paddleWidth + 5;
+              direction.current = Math.abs(direction.current); // Ensure ball goes right
             }
+            // Right paddle collision
+            else if (
+              x >= x2Ref.current - ballWidth &&
+              x < x2Ref.current + 10 &&
+              collisionCheck(y2Ref.current) &&
+              direction.current > 0 // Ball moving right
+            ) {
+              isCollision = true;
+              x = x2Ref.current - ballWidth - 5;
+              direction.current = -Math.abs(direction.current); // Ensure ball goes left
+            }
+
             if (isCollision) {
-              direction.current = direction.current * -1;
               canChangeDirectionRef.current = false;
               pastPaddleRef.current = true;
             }
           }
-          if (x <= 0 && !pastPaddleRef.current) {
+
+          // Score detection - only if ball has passed paddle area
+          if (x <= -ballWidth && !scoredRef.current) {
             setPlayer2Score((score) => score + 1);
+            scoredRef.current = true;
             resetRound();
-          } else if (x >= canvasWidth && !pastPaddleRef.current) {
+            return x; // Don't continue moving
+          } else if (x >= canvasWidth + ballWidth && !scoredRef.current) {
             setPlayer1Score((score) => score + 1);
+            scoredRef.current = true;
             resetRound();
+            return x; // Don't continue moving
           }
 
-          pastPaddleRef.current = false;
           return x + direction.current * velocity;
         });
 
         setBallY((y) => {
-          if (y >= canvasHeight || y <= 0) {
+          if (y >= canvasHeight - ballWidth || y <= 0) {
             angle.current = angle.current * -1;
           }
-          return y + angle.current * 10;
+          return y + angle.current * 8;
         });
       }, 60);
     } else {
@@ -250,8 +264,11 @@ const Ball = ({
   };
 
   const resetRound = () => {
-    setBallX(300);
-    setBallY(250); //can do middle of height or anywhere in height range for random
+    setBallX(450);
+    setBallY(175); //can do middle of height or anywhere in height range for random
+    scoredRef.current = false; // Reset scoring flag
+    canChangeDirectionRef.current = true; // Reset collision flag
+    pastPaddleRef.current = false; // Reset paddle flag
   };
 
   const resetGame = () => {
@@ -261,20 +278,27 @@ const Ball = ({
     setStart(false);
     setPlayer1Score(0);
     setPlayer2Score(0);
+    scoredRef.current = false; // Reset scoring flag
+    canChangeDirectionRef.current = true; // Reset collision flag
+    pastPaddleRef.current = false; // Reset paddle flag
     resetRound();
   };
 
   return (
-    <div>
-      <button className="text-[#cc0000]" class="btn" onClick={resetGame}>
+    <div className="text-center w-full flex flex-col items-center">
+      <div className="flex justify-center gap-8 mb-4 text-sm text-white">
+        <div>Player1 Score: {player1Score}</div>
+        <div>Player2 Score: {player2Score}</div>
+      </div>
+
+      <div className="flex justify-center gap-8 mb-4 text-xs text-slate-300">
+        <div>Player1: W/S</div>
+        <div>Player2: I/K</div>
+      </div>
+
+      <button className="text-[#cc0000] font-bold mb-4" onClick={resetGame}>
         Reset
       </button>
-
-      <h1> Player1 Score: {player1Score}</h1>
-      <h1> Player2 Score: {player2Score}</h1>
-
-      <h1> Player1 Controls: W - up , S - down </h1>
-      <h1> Player2 Controls: I - up , K - down </h1>
       <Canvas
         width={canvasWidth}
         height={canvasHeight}
@@ -321,10 +345,16 @@ const Canvas = (props) => {
 
     ctx.setLineDash([8, 5]);
     ctx.beginPath();
-    ctx.moveTo(300, 0);
-    ctx.lineTo(300, 500);
+    ctx.moveTo(450, 0);
+    ctx.lineTo(450, 350);
     ctx.stroke();
   }, [y1, y2, ballX, ballY]);
 
-  return <canvas ref={ref} {...rest} />;
+  return (
+    <canvas
+      ref={ref}
+      {...rest}
+      className="mx-auto border border-slate-600 rounded-lg"
+    />
+  );
 };
